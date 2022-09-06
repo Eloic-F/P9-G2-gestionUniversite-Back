@@ -16,6 +16,8 @@ public class Evaluation {
 	private String commentaire;
 	@Lob
 	private byte[] image;
+
+	// ASSOCIATIONS
 	@ManyToOne
 	@JoinColumn(name = "id_evaluation")
 	private Evaluation evaluation;
