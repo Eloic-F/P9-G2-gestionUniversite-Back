@@ -2,6 +2,7 @@ package com.inti.entities;
 
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Universite {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idUniversite;
 	private String nomUniversite;
+	@Embedded
 	private Adresse adresseUniversite;
 	
 	@ManyToOne

@@ -3,6 +3,7 @@ package com.inti.entities;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Academie {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idAcademie;
 	private String nomAcademie;
+	@Embedded
 	private Adresse adresseAcademie;
 	private byte[] logo;
 	

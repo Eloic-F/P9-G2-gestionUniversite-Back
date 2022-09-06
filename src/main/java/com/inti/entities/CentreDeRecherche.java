@@ -2,6 +2,7 @@ package com.inti.entities;
 
 import java.util.Arrays;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class CentreDeRecherche {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long CentreDeRecherche;
 	private String nomCentreDeRecherche;
+	@Embedded
 	private Adresse adresseCentreDeRecherche;
 	private byte[] logo;
 	
