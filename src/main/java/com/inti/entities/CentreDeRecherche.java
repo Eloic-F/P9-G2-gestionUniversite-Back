@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import javax.persistence.Embedded;
@@ -13,7 +14,7 @@ import javax.persistence.ManyToOne;
 import com.inti.model.Adresse;
 
 @Entity
-public class CentreDeRecherche {
+public class CentreDeRecherche implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
