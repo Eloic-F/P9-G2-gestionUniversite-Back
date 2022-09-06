@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.inti.entities.Examen;
 
-
-
 public interface IExamenService {
 
 	List<Examen> findAll();
+	
+	Examen findOne(Long id);
 
 	Examen save(Examen examen);
 

@@ -6,6 +6,8 @@ import com.inti.entities.Compte;
 
 public interface ICompteService {
 
+	Compte findOne(Long id);
+	
 	List<Compte> findAll();
 
 	Compte save(Compte compte);
