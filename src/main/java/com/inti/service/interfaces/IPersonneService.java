@@ -5,6 +5,7 @@ import java.util.List;
 import com.inti.entities.Personne;
 
 public interface IPersonneService {
+	
 	List<Personne> findAll();
 
 	Personne findOne(Long id);

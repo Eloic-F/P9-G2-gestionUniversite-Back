@@ -5,6 +5,7 @@ import java.util.List;
 import com.inti.entities.Cours;
 
 public interface ICoursService {
+	
 	List<Cours> findAll();
 
 	Cours findOne(Long id);

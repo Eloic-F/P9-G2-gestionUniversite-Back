@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.inti.entities.Compte;
 
-
-
 public interface ICompteService {
 
 	List<Compte> findAll();
