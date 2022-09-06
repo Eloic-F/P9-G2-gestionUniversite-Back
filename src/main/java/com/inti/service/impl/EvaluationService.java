@@ -3,11 +3,13 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Evaluation;
 import com.inti.repositories.EvaluationRepository;
 import com.inti.service.interfaces.IEvaluationService;
 
+@Service
 public class EvaluationService implements IEvaluationService {
 
 	@Autowired
