@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +28,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.inti.model.Adresse;
 
 @Entity
-public class Personne {
+public class Personne implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
