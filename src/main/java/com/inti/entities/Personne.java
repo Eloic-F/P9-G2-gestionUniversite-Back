@@ -75,7 +75,6 @@ public class Personne {
 
 	public Personne(String nom, String prenom, Date dateNaissance, String email, int numeroTel, Adresse adressePersonne,
 			byte[] image, String username, String password) {
-		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
