@@ -1,6 +1,7 @@
 package com.inti.entities;
 
 
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
+
 @Entity
-public class Role {
+public class Role implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idRole;
@@ -19,10 +21,8 @@ public class Role {
 	public Role() {
 		
 	}
-
-	public Role(Long idRole, String libelleRole) {
-		
-		this.idRole = idRole;
+  
+  public Role(String libelleRole) {
 		this.libelleRole = libelleRole;
 	}
 
@@ -36,12 +36,10 @@ public class Role {
 
 	public String getLibelleRole() {
 		return libelleRole;
-	}
 
 	public void setLibelleRole(String libelleRole) {
 		this.libelleRole = libelleRole;
 	}
-	
 	
 	
 }

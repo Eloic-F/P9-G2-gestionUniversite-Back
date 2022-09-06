@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Section {
+public class Section implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
@@ -19,7 +20,7 @@ public class Section {
 	private String nomSection;
 	
 	@ManyToOne
-	@JoinColumn(name="idUniversite")
+	@JoinColumn(name="id_Universite")
 	private Universite universite;
 	
 	@OneToMany(mappedBy = "Section")
