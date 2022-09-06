@@ -9,23 +9,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import com.inti.model.Adresse;
 
 @Entity
 public class CentreDeRecherche implements Serializable {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCentreDeRecherche;
 	private String nomCentreDeRecherche;
 	@Embedded
 	private Adresse adresseCentreDeRecherche;
+	@Lob
 	private byte[] logo;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_Universite")
+	@JoinColumn(name = "id_Universite")
 	private Universite universite;
 
 	public CentreDeRecherche() {
@@ -88,8 +90,5 @@ public class CentreDeRecherche implements Serializable {
 				+ nomCentreDeRecherche + ", adresseCentreDeRecherche=" + adresseCentreDeRecherche + ", logo="
 				+ Arrays.toString(logo) + ", universite=" + universite + "]";
 	}
-
-	
-	
 
 }

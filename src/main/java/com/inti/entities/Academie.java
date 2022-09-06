@@ -9,21 +9,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.inti.model.Adresse;
 
 @Entity
 public class Academie implements Serializable {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAcademie;
 	private String nomAcademie;
 	@Embedded
 	private Adresse adresseAcademie;
+	@Lob
 	private byte[] logo;
-	
+
 	@OneToMany(mappedBy = "academie")
 	List<Universite> universites;
 
@@ -86,10 +88,5 @@ public class Academie implements Serializable {
 		return "Academie [idAcademie=" + idAcademie + ", nomAcademie=" + nomAcademie + ", adresseAcademie="
 				+ adresseAcademie + ", logo=" + Arrays.toString(logo) + ", universites=" + universites + "]";
 	}
-
-	
-	
-
-	
 
 }
