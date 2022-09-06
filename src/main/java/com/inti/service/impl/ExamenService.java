@@ -30,4 +30,9 @@ public class ExamenService implements IExamenService {
 		examenRepository.deleteById(id);
 		
 	}
+
+	@Override
+	public Examen findOne(Long id) {
+		return examenRepository.findById(id).get();
+	}
 }

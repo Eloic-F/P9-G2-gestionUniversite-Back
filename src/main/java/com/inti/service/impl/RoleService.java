@@ -32,4 +32,9 @@ public class RoleService implements IRoleService {
 		roleRepository.deleteById(id);
 		
 	}
+
+	@Override
+	public Role findOne(Long id) {
+		return  roleRepository.findById(id).get();
+	}
 }

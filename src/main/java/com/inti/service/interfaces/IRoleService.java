@@ -8,6 +8,8 @@ public interface IRoleService {
 
 	List<Role> findAll();
 
+	Role findOne(Long id);
+	
 	Role save(Role role);
 
 	void delete(Long id);

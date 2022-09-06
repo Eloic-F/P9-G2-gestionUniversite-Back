@@ -31,4 +31,9 @@ public class CompteService implements ICompteService {
 		
 	}
 
+	@Override
+	public Compte findOne(Long id) {
+		return compteRepository.findById(id).get();
+	}
+	
 }

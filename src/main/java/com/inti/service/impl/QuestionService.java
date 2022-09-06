@@ -30,4 +30,10 @@ public class QuestionService implements IQuestionService {
 		questionRepository.deleteById(id);
 		
 	}
+
+	@Override
+	public Question findOne(Long id) {
+		
+		return questionRepository.findById(id).get();
+	}
 }
