@@ -24,7 +24,7 @@ public class Academie implements Serializable {
 	private Adresse adresseAcademie;
 	private byte[] logo;
 	
-	@OneToMany(mappedBy = "Academie")
+	@OneToMany(mappedBy = "academie")
 	List<Universite> universites;
 
 	public Academie() {

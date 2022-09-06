@@ -18,12 +18,9 @@ public class Question {
 	private String question;
 	private String categorie;
 	@ManyToOne
-	@JoinColumn(name="id_personne")
+	@JoinColumn(name = "id_Personne")
 	private Personne personne;
-	@ManyToMany
-	@JoinColumn(name = "id_cours")
-	private List<Cours> cours;
-	
+
 	public Question() {
 		
 	}
@@ -38,21 +35,10 @@ public class Question {
 		this.question = question;
 		this.categorie = categorie;
 		this.personne = personne;
-		this.cours = personnes;
-	}
-
-
-	public List<Cours> getPersonnes() {
-		return cours;
 	}
 
 
 
-
-
-	public void setPersonnes(List<Cours> personnes) {
-		this.cours = personnes;
-	}
 
 
 

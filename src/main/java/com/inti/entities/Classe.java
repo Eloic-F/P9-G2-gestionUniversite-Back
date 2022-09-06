@@ -22,7 +22,7 @@ public class Classe implements Serializable {
 	@OneToMany(mappedBy = "classe")
 	private List<Personne> personnes;
 	@ManyToOne
-	@JoinColumn(name = "id_classe")
+	@JoinColumn(name = "id_formation")
 	private Formation formation;
 
 	public Classe() {

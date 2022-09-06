@@ -28,13 +28,13 @@ public class Universite implements Serializable{
 	@JoinColumn(name="idAcademie")
 	private Academie academie;
 
-	@OneToMany(mappedBy = "Universite")
+	@OneToMany(mappedBy = "universite")
 	List<CentreDeRecherche> centreDeRecherches;
 	
-	@OneToMany(mappedBy = "Universite")
+	@OneToMany(mappedBy = "universite")
 	List<Personne> personnes;
 	
-	@OneToMany(mappedBy = "Universite")
+	@OneToMany(mappedBy = "universite")
 	List<Section> sections;
 	
 	public Universite() {
