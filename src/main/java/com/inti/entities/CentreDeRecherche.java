@@ -1,5 +1,7 @@
 package com.inti.entities;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +19,10 @@ public class CentreDeRecherche {
 	private Long CentreDeRecherche;
 	private String nomCentreDeRecherche;
 	private Adresse adresseCentreDeRecherche;
-	private byte logo;
+	private byte[] logo;
 	
 	@ManyToOne
-	@JoinColumn(name="idUniversite")
+	@JoinColumn(name="id_Universite")
 	private Universite universite;
 
 	public CentreDeRecherche() {
@@ -28,7 +30,7 @@ public class CentreDeRecherche {
 	}
 
 	public CentreDeRecherche(Long centreDeRecherche, String nomCentreDeRecherche, Adresse adresseCentreDeRecherche,
-			byte logo, Universite universite) {
+			byte[] logo, Universite universite) {
 		super();
 		CentreDeRecherche = centreDeRecherche;
 		this.nomCentreDeRecherche = nomCentreDeRecherche;
@@ -61,11 +63,11 @@ public class CentreDeRecherche {
 		this.adresseCentreDeRecherche = adresseCentreDeRecherche;
 	}
 
-	public byte getLogo() {
+	public byte[] getLogo() {
 		return logo;
 	}
 
-	public void setLogo(byte logo) {
+	public void setLogo(byte[] logo) {
 		this.logo = logo;
 	}
 
@@ -80,9 +82,10 @@ public class CentreDeRecherche {
 	@Override
 	public String toString() {
 		return "CentreDeRecherche [CentreDeRecherche=" + CentreDeRecherche + ", nomCentreDeRecherche="
-				+ nomCentreDeRecherche + ", adresseCentreDeRecherche=" + adresseCentreDeRecherche + ", logo=" + logo
-				+ ", universite=" + universite + "]";
+				+ nomCentreDeRecherche + ", adresseCentreDeRecherche=" + adresseCentreDeRecherche + ", logo="
+				+ Arrays.toString(logo) + ", universite=" + universite + "]";
 	}
+
 	
 	
 

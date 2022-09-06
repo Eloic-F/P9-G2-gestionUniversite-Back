@@ -19,7 +19,7 @@ public class Section {
 	private String nomSection;
 	
 	@ManyToOne
-	@JoinColumn(name="idUniversite")
+	@JoinColumn(name="id_Universite")
 	private Universite universite;
 	
 	@OneToMany(mappedBy = "Section")

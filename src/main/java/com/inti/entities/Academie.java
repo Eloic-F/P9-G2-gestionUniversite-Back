@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Academie {
 	private Long idAcademie;
 	private String nomAcademie;
 	private Adresse adresseAcademie;
-	private byte logo;
+	private byte[] logo;
 	
 	@OneToMany(mappedBy = "Academie")
 	List<Universite> universites;
@@ -27,7 +28,7 @@ public class Academie {
 		super();
 	}
 
-	public Academie(Long idAcademie, String nomAcademie, Adresse adresseAcademie, byte logo,
+	public Academie(Long idAcademie, String nomAcademie, Adresse adresseAcademie, byte[] logo,
 			List<Universite> universites) {
 		super();
 		this.idAcademie = idAcademie;
@@ -61,28 +62,29 @@ public class Academie {
 		this.adresseAcademie = adresseAcademie;
 	}
 
-	public byte getLogo() {
+	public byte[] getLogo() {
 		return logo;
 	}
 
-	public void setLogo(byte logo) {
+	public void setLogo(byte[] logo) {
 		this.logo = logo;
 	}
 
-	public List<Universite> getUniversite() {
+	public List<Universite> getUniversites() {
 		return universites;
 	}
 
-	public void setUniversite(List<Universite> universites) {
+	public void setUniversites(List<Universite> universites) {
 		this.universites = universites;
 	}
 
 	@Override
 	public String toString() {
 		return "Academie [idAcademie=" + idAcademie + ", nomAcademie=" + nomAcademie + ", adresseAcademie="
-				+ adresseAcademie + ", logo=" + logo + ", universites=" + universites + "]";
+				+ adresseAcademie + ", logo=" + Arrays.toString(logo) + ", universites=" + universites + "]";
 	}
 
+	
 	
 
 	
