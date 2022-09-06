@@ -47,23 +47,23 @@ public class Personne {
 
 	// ASSOCIATIONS
 	@ManyToOne
-	@JoinColumn(name = "id_utilisateur")
+	@JoinColumn(name = "id_personne")
 	private Classe classe;
 	@ManyToOne
-	@JoinColumn(name = "id_utilisateur")
+	@JoinColumn(name = "id_personne")
 	private Universite universite;
 	@OneToOne
 	@JoinColumn(name = "id_compte")
 	private Compte compte;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "personne")
 	private List<Examen> examens;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "personne")
 	private List<Evaluation> evaluations;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "personne")
 	private List<Cours> courses;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "personne")
 	private List<Question> questions;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "PROFILS", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
