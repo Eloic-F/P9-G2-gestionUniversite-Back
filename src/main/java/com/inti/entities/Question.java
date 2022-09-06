@@ -1,10 +1,13 @@
 package com.inti.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,18 +20,42 @@ public class Question {
 	@ManyToOne
 	@JoinColumn(name="id_personne")
 	private Personne personne;
+	@ManyToMany
+	@JoinColumn(name = "id_cours")
+	private List<Cours> cours;
 	
 	public Question() {
 		
 	}
 
 	
-	public Question(Long idQuestion, String question, String categorie, Personne personne) {
+
+
+
+	public Question(Long idQuestion, String question, String categorie, Personne personne, List<Cours> personnes) {
+		
 		this.idQuestion = idQuestion;
 		this.question = question;
 		this.categorie = categorie;
 		this.personne = personne;
+		this.cours = personnes;
 	}
+
+
+	public List<Cours> getPersonnes() {
+		return cours;
+	}
+
+
+
+
+
+	public void setPersonnes(List<Cours> personnes) {
+		this.cours = personnes;
+	}
+
+
+
 
 
 	public Long getIdQuestion() {
