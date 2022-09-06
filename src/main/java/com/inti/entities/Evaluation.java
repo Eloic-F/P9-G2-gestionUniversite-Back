@@ -21,11 +21,12 @@ public class Evaluation implements Serializable {
 
 	// ASSOCIATIONS
 	@ManyToOne
-	@JoinColumn(name = "id_evaluation")
-	private Evaluation evaluation;
-	@ManyToOne
-	@JoinColumn(name = "id_evaluation")
+	@JoinColumn(name = "id_cours")
 	private Cours cours;
+
+	@ManyToOne
+	@JoinColumn(name = "id_personne")
+	private Personne personne;
 
 	public Evaluation() {
 		// TODO Auto-generated constructor stub
@@ -60,13 +61,7 @@ public class Evaluation implements Serializable {
 		this.image = image;
 	}
 
-	public Evaluation getEvaluation() {
-		return evaluation;
-	}
 
-	public void setEvaluation(Evaluation evaluation) {
-		this.evaluation = evaluation;
-	}
 
 	public Cours getCours() {
 		return cours;

@@ -3,11 +3,7 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Formation implements Serializable {
@@ -18,11 +14,14 @@ public class Formation implements Serializable {
 	private String titreFormation;
 	private String gradeFormation;
 	
-	@OneToMany(mappedBy = "Formation")
+	@OneToMany(mappedBy = "formation")
 	List<Cours> courses;
 	
-	@OneToMany(mappedBy = "Formation")
+	@OneToMany(mappedBy = "formation")
 	List<Classe> classes;
+	@ManyToOne
+	@JoinColumn(name = "id_Section")
+	private Section section;
 
 	public Formation() {
 		super();
@@ -36,6 +35,18 @@ public class Formation implements Serializable {
 		this.gradeFormation = gradeFormation;
 		this.courses = courses;
 		this.classes = classes;
+	}
+
+	public void setCourses(List<Cours> courses) {
+		this.courses = courses;
+	}
+
+	public Section getSection() {
+		return section;
+	}
+
+	public void setSection(Section section) {
+		this.section = section;
 	}
 
 	public Long getIdFormation() {

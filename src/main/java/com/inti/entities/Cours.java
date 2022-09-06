@@ -29,13 +29,13 @@ public class Cours implements Serializable {
 
 	// ASSOCIATIONS
 	@ManyToOne
-	@JoinColumn(name = "id_cours")
+	@JoinColumn(name = "id_ue")
 	private UE ue;
 	@ManyToOne
-	@JoinColumn(name = "id_cours")
+	@JoinColumn(name = "id_formation")
 	private Formation formation;
 	@ManyToOne
-	@JoinColumn(name = "id_cours")
+	@JoinColumn(name = "id_personne")
 	private Personne personne;
 	@OneToMany(mappedBy = "cours")
 	private List<Evaluation> evaluations;

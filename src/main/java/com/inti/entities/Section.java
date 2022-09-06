@@ -23,7 +23,7 @@ public class Section implements Serializable{
 	@JoinColumn(name="id_Universite")
 	private Universite universite;
 	
-	@OneToMany(mappedBy = "Section")
+	@OneToMany(mappedBy = "section")
 	List<Formation> formations;
 
 	public Section() {

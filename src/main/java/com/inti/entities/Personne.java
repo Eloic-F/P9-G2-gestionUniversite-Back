@@ -22,10 +22,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.inti.model.Adresse;
+
 
 @Entity
 public class Personne implements Serializable {
@@ -48,10 +48,10 @@ public class Personne implements Serializable {
 
 	// ASSOCIATIONS
 	@ManyToOne
-	@JoinColumn(name = "id_personne")
+	@JoinColumn(name = "id_classe")
 	private Classe classe;
 	@ManyToOne
-	@JoinColumn(name = "id_personne")
+	@JoinColumn(name = "id_universitée")
 	private Universite universite;
 	@OneToOne
 	@JoinColumn(name = "id_compte")
@@ -60,12 +60,12 @@ public class Personne implements Serializable {
 	private List<Examen> examens;
 	@OneToMany(mappedBy = "personne")
 	private List<Evaluation> evaluations;
-	@ManyToMany(fetch = FetchType.EAGER)
+
 	@OneToMany(mappedBy = "personne")
 	private List<Cours> courses;
-	@ManyToMany(fetch = FetchType.EAGER)
+
 	@OneToMany(mappedBy = "personne")
-	private List<Question> questions;
+	private List<com.inti.entities.Question> questions;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "PROFILS", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();

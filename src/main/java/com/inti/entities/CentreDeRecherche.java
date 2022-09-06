@@ -18,7 +18,7 @@ public class CentreDeRecherche implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long CentreDeRecherche;
+	private Long idCentreDeRecherche;
 	private String nomCentreDeRecherche;
 	@Embedded
 	private Adresse adresseCentreDeRecherche;
@@ -32,10 +32,10 @@ public class CentreDeRecherche implements Serializable {
 		super();
 	}
 
-	public CentreDeRecherche(Long centreDeRecherche, String nomCentreDeRecherche, Adresse adresseCentreDeRecherche,
+	public CentreDeRecherche(Long idcentreDeRecherche, String nomCentreDeRecherche, Adresse adresseCentreDeRecherche,
 			byte[] logo, Universite universite) {
 		super();
-		CentreDeRecherche = centreDeRecherche;
+		idCentreDeRecherche = idcentreDeRecherche;
 		this.nomCentreDeRecherche = nomCentreDeRecherche;
 		this.adresseCentreDeRecherche = adresseCentreDeRecherche;
 		this.logo = logo;
@@ -43,11 +43,11 @@ public class CentreDeRecherche implements Serializable {
 	}
 
 	public Long getCentreDeRecherche() {
-		return CentreDeRecherche;
+		return idCentreDeRecherche;
 	}
 
 	public void setCentreDeRecherche(Long centreDeRecherche) {
-		CentreDeRecherche = centreDeRecherche;
+		idCentreDeRecherche = centreDeRecherche;
 	}
 
 	public String getNomCentreDeRecherche() {
@@ -84,7 +84,7 @@ public class CentreDeRecherche implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CentreDeRecherche [CentreDeRecherche=" + CentreDeRecherche + ", nomCentreDeRecherche="
+		return "CentreDeRecherche [CentreDeRecherche=" + idCentreDeRecherche + ", nomCentreDeRecherche="
 				+ nomCentreDeRecherche + ", adresseCentreDeRecherche=" + adresseCentreDeRecherche + ", logo="
 				+ Arrays.toString(logo) + ", universite=" + universite + "]";
 	}
