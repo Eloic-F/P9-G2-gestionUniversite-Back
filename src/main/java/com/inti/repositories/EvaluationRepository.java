@@ -1,5 +1,9 @@
 package com.inti.repositories;
 
-public interface EvaluationRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.inti.entities.Evaluation;
+
+public interface EvaluationRepository extends JpaRepository<Evaluation, Long> {
 
 }
