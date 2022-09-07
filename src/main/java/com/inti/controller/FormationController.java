@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inti.entities.Formation;
 import com.inti.service.interfaces.IFormationService;
 
-
 @RestController
 @CrossOrigin
 public class FormationController {
@@ -40,6 +39,5 @@ public class FormationController {
 	    public void deleteFormation(@PathVariable("id") Long id) {
 	        formationService.delete(id);
 	    }
-
 
 }
