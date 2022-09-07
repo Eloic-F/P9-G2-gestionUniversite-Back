@@ -26,9 +26,6 @@ public class Question {
 	}
 
 	
-
-
-
 	public Question(Long idQuestion, String question, String categorie, Personne personne, List<Cours> personnes) {
 		
 		this.idQuestion = idQuestion;
