@@ -1,6 +1,8 @@
 package com.inti.entities;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idQuestion;
-	private String question;
+	private Map<String,String> question = new HashMap<>();
 	private String categorie;
 	@ManyToOne
 	@JoinColumn(name = "id_Personne")
@@ -26,7 +28,7 @@ public class Question {
 	}
 
 	
-	public Question(Long idQuestion, String question, String categorie, Personne personne, List<Cours> personnes) {
+	public Question(Long idQuestion, Map<String,String> question, String categorie, Personne personne, List<Cours> personnes) {
 		
 		this.idQuestion = idQuestion;
 		this.question = question;
@@ -50,16 +52,13 @@ public class Question {
 		this.idQuestion = idQuestion;
 	}
 
-
-	public String getQuestion() {
+	public Map<String, String> getQuestion() {
 		return question;
 	}
 
-
-	public void setQuestion(String question) {
+	public void setQuestion(Map<String, String> question) {
 		this.question = question;
 	}
-
 
 	public String getCategorie() {
 		return categorie;

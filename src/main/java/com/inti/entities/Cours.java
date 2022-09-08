@@ -1,21 +1,14 @@
 package com.inti.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Cours implements Serializable {
@@ -24,6 +17,9 @@ public class Cours implements Serializable {
 	private Long idCours;
 	private String libelleCours;
 	private float dureeCours;
+	@DateTimeFormat(pattern = "dd/MM/YYYY")
+	@Temporal(TemporalType.DATE)
+	private Date dateCours;
 	@Lob
 	private byte[] image;
 
@@ -51,6 +47,14 @@ public class Cours implements Serializable {
 		this.libelleCours = libelleCours;
 		this.dureeCours = dureeCours;
 		this.image = image;
+	}
+
+	public Date getDateCours() {
+		return dateCours;
+	}
+
+	public void setDateCours(Date dateCours) {
+		this.dateCours = dateCours;
 	}
 
 	public Long getIdCours() {
