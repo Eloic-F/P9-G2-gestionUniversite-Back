@@ -62,7 +62,6 @@ public class Evaluation implements Serializable {
 	}
 
 
-
 	public Cours getCours() {
 		return cours;
 	}

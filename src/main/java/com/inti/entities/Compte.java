@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Compte {
 	@Id
@@ -16,6 +18,7 @@ public class Compte {
 	private String statut;
 	@OneToOne
 	@JoinColumn(name="id_personne")
+	@JsonIgnore
 	private Personne personne;
 	
 	public Compte() {
@@ -65,5 +68,4 @@ public class Compte {
 	
 	
 	
-
 }

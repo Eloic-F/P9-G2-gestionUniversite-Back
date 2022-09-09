@@ -88,15 +88,4 @@ public class Formation implements Serializable {
 	public void setClasses(List<Classe> classes) {
 		this.classes = classes;
 	}
-
-	@Override
-	public String toString() {
-		return "Formation [idFormation=" + idFormation + ", titreFormation=" + titreFormation + ", gradeFormation="
-				+ gradeFormation + ", courses=" + courses + ", classes=" + classes + "]";
-	}
-
-	
-	
-	
-
 }
