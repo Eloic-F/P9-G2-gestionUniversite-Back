@@ -1,7 +1,6 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Embedded;
@@ -81,12 +80,6 @@ public class Academie implements Serializable {
 
 	public void setUniversites(List<Universite> universites) {
 		this.universites = universites;
-	}
-
-	@Override
-	public String toString() {
-		return "Academie [idAcademie=" + idAcademie + ", nomAcademie=" + nomAcademie + ", adresseAcademie="
-				+ adresseAcademie + ", logo=" + Arrays.toString(logo) + ", universites=" + universites + "]";
 	}
 
 }

@@ -12,17 +12,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Section implements Serializable{
+public class Section implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long idSection;
 	private String nomSection;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_Universite")
+	@JoinColumn(name = "id_Universite")
 	private Universite universite;
-	
+
 	@OneToMany(mappedBy = "section")
 	List<Formation> formations;
 
@@ -69,13 +69,5 @@ public class Section implements Serializable{
 	public void setFormations(List<Formation> formations) {
 		this.formations = formations;
 	}
-
-	@Override
-	public String toString() {
-		return "Section [idSection=" + idSection + ", nomSection=" + nomSection + ", universite=" + universite
-				+ ", formations=" + formations + "]";
-	}
-	
-	
 
 }

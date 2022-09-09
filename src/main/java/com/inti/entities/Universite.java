@@ -15,28 +15,28 @@ import javax.persistence.OneToMany;
 import com.inti.model.Adresse;
 
 @Entity
-public class Universite implements Serializable{
+public class Universite implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUniversite;
 	private String nomUniversite;
 	@Embedded
 	private Adresse adresseUniversite;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idAcademie")
+	@JoinColumn(name = "idAcademie")
 	private Academie academie;
 
 	@OneToMany(mappedBy = "universite")
 	List<CentreDeRecherche> centreDeRecherches;
-	
+
 	@OneToMany(mappedBy = "universite")
 	List<Personne> personnes;
-	
+
 	@OneToMany(mappedBy = "universite")
 	List<Section> sections;
-	
+
 	public Universite() {
 		super();
 	}
@@ -109,12 +109,4 @@ public class Universite implements Serializable{
 		this.sections = sections;
 	}
 
-	@Override
-	public String toString() {
-		return "Universite [idUniversite=" + idUniversite + ", nomUniversite=" + nomUniversite + ", adresseUniversite="
-				+ adresseUniversite + ", academie=" + academie + ", centreDeRecherches=" + centreDeRecherches
-				+ ", personnes=" + personnes + ", sections=" + sections + "]";
-	}
-
-	
 }
