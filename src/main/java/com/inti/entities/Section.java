@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Section implements Serializable{
 	@Id
@@ -24,6 +26,7 @@ public class Section implements Serializable{
 	private Universite universite;
 	
 	@OneToMany(mappedBy = "section")
+	@JsonIgnore
 	List<Formation> formations;
 
 	public Section() {
@@ -69,13 +72,5 @@ public class Section implements Serializable{
 	public void setFormations(List<Formation> formations) {
 		this.formations = formations;
 	}
-
-	@Override
-	public String toString() {
-		return "Section [idSection=" + idSection + ", nomSection=" + nomSection + ", universite=" + universite
-				+ ", formations=" + formations + "]";
-	}
-	
-	
 
 }

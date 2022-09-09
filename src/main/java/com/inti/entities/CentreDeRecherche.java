@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import com.inti.model.Adresse;
 
@@ -82,13 +83,6 @@ public class CentreDeRecherche implements Serializable {
 
 	public void setUniversite(Universite universite) {
 		this.universite = universite;
-	}
-
-	@Override
-	public String toString() {
-		return "CentreDeRecherche [CentreDeRecherche=" + idCentreDeRecherche + ", nomCentreDeRecherche="
-				+ nomCentreDeRecherche + ", adresseCentreDeRecherche=" + adresseCentreDeRecherche + ", logo="
-				+ Arrays.toString(logo) + ", universite=" + universite + "]";
 	}
 
 }
