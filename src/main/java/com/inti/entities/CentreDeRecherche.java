@@ -1,7 +1,6 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

@@ -3,7 +3,6 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,31 +16,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
 @Entity
-public class Universite implements Serializable{
+public class Universite implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUniversite;
 	private String nomUniversite;
 	@Embedded
 	private Adresse adresseUniversite;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idAcademie")
+	@JoinColumn(name = "idAcademie")
 	private Academie academie;
 
 	@OneToMany(mappedBy = "universite")
 	@JsonIgnore
 	List<CentreDeRecherche> centreDeRecherches;
-	
+
 	@OneToMany(mappedBy = "universite")
 	@JsonIgnore
 	List<Personne> personnes;
-	
+
 	@OneToMany(mappedBy = "universite")
 	@JsonIgnore
 	List<Section> sections;
-	
+
 	public Universite() {
 		super();
 	}
@@ -113,5 +112,4 @@ public class Universite implements Serializable{
 	public void setSections(List<Section> sections) {
 		this.sections = sections;
 	}
-	
 }

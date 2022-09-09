@@ -14,17 +14,17 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Section implements Serializable{
+public class Section implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long idSection;
 	private String nomSection;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_Universite")
+	@JoinColumn(name = "id_Universite")
 	private Universite universite;
-	
+
 	@OneToMany(mappedBy = "section")
 	@JsonIgnore
 	List<Formation> formations;
