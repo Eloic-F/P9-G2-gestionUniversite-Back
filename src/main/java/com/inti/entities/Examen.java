@@ -102,15 +102,4 @@ public class Examen {
 		this.personne = personne;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

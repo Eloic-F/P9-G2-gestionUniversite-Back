@@ -1,21 +1,27 @@
 package com.inti.entities;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idQuestion;
-	private String question;
+	
+	@ManyToOne(targetEntity=Question.class, fetch=FetchType.EAGER )
+	private Map<String,String> question = new HashMap<>();
 	private String categorie;
 	@ManyToOne
 	@JoinColumn(name = "id_Personne")
@@ -25,20 +31,13 @@ public class Question {
 		
 	}
 
-	
-	public Question(Long idQuestion, String question, String categorie, Personne personne, List<Cours> personnes) {
+	public Question(Long idQuestion, Map<String,String> question, String categorie, Personne personne, List<Cours> personnes) {
 		
 		this.idQuestion = idQuestion;
 		this.question = question;
 		this.categorie = categorie;
 		this.personne = personne;
 	}
-
-
-
-
-
-
 
 
 	public Long getIdQuestion() {
@@ -50,16 +49,13 @@ public class Question {
 		this.idQuestion = idQuestion;
 	}
 
-
-	public String getQuestion() {
+	public Map<String, String> getQuestion() {
 		return question;
 	}
 
-
-	public void setQuestion(String question) {
+	public void setQuestion(Map<String, String> question) {
 		this.question = question;
 	}
-
 
 	public String getCategorie() {
 		return categorie;
@@ -80,9 +76,4 @@ public class Question {
 		this.personne = personne;
 	}
 	
-	
-	
-	
-	
-
 }

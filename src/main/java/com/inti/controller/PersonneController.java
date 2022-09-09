@@ -1,10 +1,14 @@
 package com.inti.controller;
 
+import com.inti.entities.Cours;
+import com.inti.entities.Examen;
 import com.inti.entities.Personne;
+import com.inti.entities.Question;
 import com.inti.service.interfaces.IPersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -39,6 +43,18 @@ public class PersonneController {
         currentPersonne.setPrenom(personne.getPrenom());
         currentPersonne.setNom(personne.getNom());
         return personneService.save(currentPersonne);
+    }
+    @GetMapping("/personnes/questions/{id}")
+    public List<Question> findAllQuestion(@PathVariable("id")Long id){
+        return personneService.findAllQuestion(id);
+    }
+    @GetMapping("/personnes/examens/{id}")
+    public List<Examen> findAllExamen(@PathVariable("id")Long id){
+        return personneService.findAllExamen(id);
+    }
+    @GetMapping("/personnes/cours/{id}")
+    public List<Cours> findAllCours(@PathVariable("id")Long id){
+        return personneService.findAllCours(id);
     }
 
 }

@@ -3,6 +3,7 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
 @Entity
@@ -29,12 +31,15 @@ public class Universite implements Serializable{
 	private Academie academie;
 
 	@OneToMany(mappedBy = "universite")
+	@JsonIgnore
 	List<CentreDeRecherche> centreDeRecherches;
 	
 	@OneToMany(mappedBy = "universite")
+	@JsonIgnore
 	List<Personne> personnes;
 	
 	@OneToMany(mappedBy = "universite")
+	@JsonIgnore
 	List<Section> sections;
 	
 	public Universite() {
@@ -108,13 +113,5 @@ public class Universite implements Serializable{
 	public void setSections(List<Section> sections) {
 		this.sections = sections;
 	}
-
-	@Override
-	public String toString() {
-		return "Universite [idUniversite=" + idUniversite + ", nomUniversite=" + nomUniversite + ", adresseUniversite="
-				+ adresseUniversite + ", academie=" + academie + ", centreDeRecherches=" + centreDeRecherches
-				+ ", personnes=" + personnes + ", sections=" + sections + "]";
-	}
-
 	
 }

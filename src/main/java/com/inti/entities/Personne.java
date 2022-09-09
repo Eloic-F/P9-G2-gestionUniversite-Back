@@ -24,6 +24,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
 
@@ -57,21 +58,24 @@ public class Personne implements Serializable {
 	@JoinColumn(name = "id_compte")
 	private Compte compte;
 	@OneToMany(mappedBy = "personne")
+	@JsonIgnore
 	private List<Examen> examens;
 	@OneToMany(mappedBy = "personne")
+	@JsonIgnore
 	private List<Evaluation> evaluations;
 
 	@OneToMany(mappedBy = "personne")
+	@JsonIgnore
 	private List<Cours> courses;
 
 	@OneToMany(mappedBy = "personne")
-	private List<com.inti.entities.Question> questions;
+	@JsonIgnore
+	private List<Question> questions;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "PROFILS", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();
 
 	public Personne() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Personne(String nom, String prenom, Date dateNaissance, String email, int numeroTel, Adresse adressePersonne,
@@ -85,6 +89,33 @@ public class Personne implements Serializable {
 		this.image = image;
 		this.username = username;
 		this.password = password;
+	}
+
+	
+	
+	public Personne(Long id, String nom, String prenom, Date dateNaissance, String email, int numeroTel,
+			Adresse adressePersonne, byte[] image, String username, String password, Classe classe,
+			Universite universite, Compte compte, List<Examen> examens, List<Evaluation> evaluations,
+			List<Cours> courses, List<Question> questions, Set<Role> roles) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.email = email;
+		this.numeroTel = numeroTel;
+		this.adressePersonne = adressePersonne;
+		this.image = image;
+		this.username = username;
+		this.password = password;
+		this.classe = classe;
+		this.universite = universite;
+		this.compte = compte;
+		this.examens = examens;
+		this.evaluations = evaluations;
+		this.courses = courses;
+		this.questions = questions;
+		this.roles = roles;
 	}
 
 	public Long getId() {
