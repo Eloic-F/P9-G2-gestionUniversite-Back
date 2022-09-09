@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
 @Entity
@@ -26,6 +27,7 @@ public class Academie implements Serializable {
 	private byte[] logo;
 
 	@OneToMany(mappedBy = "academie")
+	@JsonIgnore
 	List<Universite> universites;
 
 	public Academie() {

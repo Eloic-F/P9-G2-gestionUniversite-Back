@@ -94,5 +94,4 @@ public class Formation implements Serializable {
 	public void setClasses(List<Classe> classes) {
 		this.classes = classes;
 	}
-
 }

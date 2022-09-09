@@ -16,6 +16,7 @@ import com.inti.service.interfaces.IAcademieService;
 @RestController
 @CrossOrigin
 public class AcademieController {
+	
 	@Autowired
 	IAcademieService academieService;
 

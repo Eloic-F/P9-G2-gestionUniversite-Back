@@ -13,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Compte;
+import com.inti.entities.Personne;
 import com.inti.service.interfaces.ICompteService;
+import com.inti.service.interfaces.IPersonneService;
 
 @RestController
 @CrossOrigin
 public class CompteController {
 	@Autowired
 	ICompteService compteService;
+	
+	@Autowired
+	IPersonneService personneService;
 	
 	@GetMapping("/comptes")
     public List<Compte> findAll() {
@@ -33,10 +38,12 @@ public class CompteController {
     }
     
     @PutMapping("/comptes/{id}")
-    public Compte updateCompteWithPut(@PathVariable("id") Long id, @RequestBody Compte compte) {
+    public Compte updateCompteWithPut(@PathVariable("id") Long id, @RequestBody Compte compte,@RequestBody Personne personne) {
         Compte currentCompte = compteService.findOne(id);
+        Personne p=personneService.findOne(id);
         currentCompte.setNumeroCompte(compte.getNumeroCompte());
         currentCompte.setStatut(compte.getStatut());
+        p.setId(currentCompte.getIdCompte());
         return compteService.save(currentCompte);
     }
     
