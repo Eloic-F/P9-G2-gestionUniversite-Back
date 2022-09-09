@@ -13,13 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idQuestion;
-	
 	@ManyToOne(targetEntity=Question.class, fetch=FetchType.EAGER )
 	private Map<String,String> question = new HashMap<>();
 	private String categorie;
