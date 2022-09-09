@@ -23,4 +23,6 @@ public interface IPersonneService {
 
 	List<Cours> findAllCours(Long id);
 
+	Personne findByUsername(String username);
+
 }

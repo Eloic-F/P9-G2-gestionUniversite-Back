@@ -58,4 +58,9 @@ public class PersonneService implements IPersonneService {
 		List<Examen> examen=personne.getExamens();
 		return examen;
 	}
+
+	@Override
+	public Personne findByUsername(String username) {
+		return personneRepository.findByUsername(username);
+	}
 }
