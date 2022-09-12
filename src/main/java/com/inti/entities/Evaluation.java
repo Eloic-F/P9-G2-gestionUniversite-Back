@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Evaluation implements Serializable {
 	@Id
@@ -22,10 +24,12 @@ public class Evaluation implements Serializable {
 	// ASSOCIATIONS
 	@ManyToOne
 	@JoinColumn(name = "id_cours")
+	@JsonIgnore
 	private Cours cours;
 
 	@ManyToOne
 	@JoinColumn(name = "id_personne")
+	@JsonIgnore
 	private Personne personne;
 
 	public Evaluation() {
@@ -60,8 +64,6 @@ public class Evaluation implements Serializable {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-
-
 
 	public Cours getCours() {
 		return cours;

@@ -19,7 +19,7 @@ import com.inti.service.interfaces.IQuestionService;
 @RestController
 @CrossOrigin
 public class QuestionController {
-	
+
 	@Autowired
 	IQuestionService questionService;
 
@@ -27,20 +27,22 @@ public class QuestionController {
 	public List<Question> findAll(){
 		return questionService.findAll();
 	}
-	
+
 	 @PostMapping("/questions")
 	    public Question saveQuestion(@RequestBody Question question) {
 	        return questionService.save(question);
 	    }
-	    
+
 	    @PutMapping("/questions/{id}")
 	    public Question updateQuestionWithPut(@PathVariable("id") Long id, @RequestBody Question question) {
 	        Question currentQuestion = questionService.findOne(id);
 	        currentQuestion.setQuestion(question.getQuestion());
 	        currentQuestion.setCategorie(question.getCategorie());
+          currentQuestion.setPersonne(question.getPersonne());
+          currentQuestion.setCategorie(question.getCategorie());
 	        return questionService.save(currentQuestion);
 	    }
-	    
+
 	    @GetMapping("/questions/{id}")
 	    public Question findOne(@PathVariable("id") Long id) {
 	        return questionService.findOne(id);
@@ -50,5 +52,5 @@ public class QuestionController {
 	    public void deleteQuestion(@PathVariable("id") Long id) {
 	    	questionService.delete(id);
 	    }
-	    
+
 }

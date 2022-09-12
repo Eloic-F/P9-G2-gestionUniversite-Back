@@ -26,12 +26,12 @@ public class ExamenController {
 	public List<Examen> findAll(){
 		return examenService.findAll();
 	}
-	
+
 	 @PostMapping("/examens")
 	    public Examen saveExamen(@RequestBody Examen examen) {
 	        return examenService.save(examen);
 	    }
-	    
+
 	    @PutMapping("/examens/{id}")
 	    public Examen updateExamenWithPut(@PathVariable("id") Long id, @RequestBody Examen examen) {
 	        Examen currentExamen = examenService.findOne(id);
@@ -40,9 +40,10 @@ public class ExamenController {
 	        currentExamen.setDureeExamen(examen.getDureeExamen());
 	        currentExamen.setNote(examen.getNote());
 	        currentExamen.setCorrection(examen.getCorrection());
+          currentExamen.setPersonne(examen.getPersonne());
 	        return examenService.save(currentExamen);
 	    }
-	    
+
 	    @GetMapping("/examens/{id}")
 	    public Examen findOne(@PathVariable("id") Long id) {
 	        return examenService.findOne(id);
