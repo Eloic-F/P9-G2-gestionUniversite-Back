@@ -57,6 +57,14 @@ public class CoursController {
     public Cours updateCoursWithPut(@PathVariable("idCours") Long id, @RequestBody Cours cours) {
         Cours currentCours = coursService.findOne(id);
         currentCours.setLibelleCours(cours.getLibelleCours());
+        currentCours.setDureeCours(cours.getDureeCours());
+        currentCours.setQuestions(cours.getQuestions());
+        currentCours.setPersonne(cours.getPersonne());
+        currentCours.setEvaluations(cours.getEvaluations());
+        currentCours.setFormation(cours.getFormation());
+        currentCours.setUe(cours.getUe());
+        currentCours.setDateCours(cours.getDateCours());
+        currentCours.setImage(cours.getImage());
         return coursService.save(currentCours);
     }
 }
