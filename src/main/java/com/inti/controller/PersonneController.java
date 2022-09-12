@@ -37,13 +37,14 @@ public class PersonneController {
         personneService.delete(id);
     }
 
-    @PutMapping("/personnes/{id}")
+    /*@PutMapping("/personnes/{id}")
     public Personne updatePersonneWithPut(@PathVariable("id") Long id, @RequestBody Personne personne) {
         Personne currentPersonne = personneService.findOne(id);
         currentPersonne.setPrenom(personne.getPrenom());
         currentPersonne.setNom(personne.getNom());
         return personneService.save(currentPersonne);
-    }
+    }*/
+    
     @GetMapping("/personnes/questions/{id}")
     public List<Question> findAllQuestion(@PathVariable("id")Long id){
         return personneService.findAllQuestion(id);
@@ -55,6 +56,21 @@ public class PersonneController {
     @GetMapping("/personnes/cours/{id}")
     public List<Cours> findAllCours(@PathVariable("id")Long id){
         return personneService.findAllCours(id);
+    }
+
+    @PutMapping("/personnes/{id}") // http://localhost:9090/utilisateurs/2
+    public Personne updateUtilisateurWithPut(@PathVariable("id") Long id /* id = 2 */,
+            @RequestBody Personne personne) { //
+        Personne currentUser = personneService.findOne(id); // nom = ayari, prenom = oussama, username=ouss,                                                          // password=ouss
+        System.out.println(currentUser.toString());
+        currentUser.setNom(personne.getNom()); // currentUser.setNomUtilisateur("Jean")
+        currentUser.setPrenom(personne.getPrenom()); // // // currentUser.setPrenomUtilisateur("Jean")
+        currentUser.setDateNaissance(personne.getDateNaissance());
+        currentUser.setEmail(personne.getEmail());
+        currentUser.setNumeroTel(personne.getNumeroTel());
+        currentUser.setUsername(personne.getUsername());
+        currentUser.setPassword(personne.getPassword());
+        return personneService.save(currentUser);
     }
 
 }
