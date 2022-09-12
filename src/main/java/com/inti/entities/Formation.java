@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Formation implements Serializable {
 
@@ -21,9 +23,11 @@ public class Formation implements Serializable {
 	private String gradeFormation;
 
 	@OneToMany(mappedBy = "formation")
+	@JsonIgnore
 	List<Cours> courses;
 
 	@OneToMany(mappedBy = "formation")
+	@JsonIgnore
 	List<Classe> classes;
 	@ManyToOne
 	@JoinColumn(name = "id_Section")
