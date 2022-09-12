@@ -1,7 +1,6 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Embedded;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
 @Entity
@@ -27,6 +27,7 @@ public class Academie implements Serializable {
 	private byte[] logo;
 
 	@OneToMany(mappedBy = "academie")
+	@JsonIgnore
 	List<Universite> universites;
 
 	public Academie() {
@@ -81,12 +82,6 @@ public class Academie implements Serializable {
 
 	public void setUniversites(List<Universite> universites) {
 		this.universites = universites;
-	}
-
-	@Override
-	public String toString() {
-		return "Academie [idAcademie=" + idAcademie + ", nomAcademie=" + nomAcademie + ", adresseAcademie="
-				+ adresseAcademie + ", logo=" + Arrays.toString(logo) + ", universites=" + universites + "]";
 	}
 
 }

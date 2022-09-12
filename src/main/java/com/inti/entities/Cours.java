@@ -2,6 +2,8 @@ package com.inti.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -34,6 +36,7 @@ public class Cours implements Serializable {
 	@JoinColumn(name = "id_personne")
 	private Personne personne;
 	@OneToMany(mappedBy = "cours")
+	@JsonIgnore
 	private List<Evaluation> evaluations;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "COURS_QUESTIONS", joinColumns = @JoinColumn(name = "id_cours", referencedColumnName = "idCours"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "idQuestion"))

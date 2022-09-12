@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class UE implements Serializable {
 	@Id
@@ -16,6 +18,7 @@ public class UE implements Serializable {
 	private Long idUE;
 	private float creditEcts;
 	@OneToMany(mappedBy = "ue")
+	@JsonIgnore
 	private List<Cours> courses;
 
 	public UE() {
