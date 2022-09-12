@@ -57,4 +57,9 @@ public class PersonneController {
         return personneService.findAllCours(id);
     }
 
+    @PostMapping("/personnes/secu/{username}")
+    public Personne findByUsername (@PathVariable("username") String username){
+        return personneService.findByUsername(username);
+    }
+
 }
