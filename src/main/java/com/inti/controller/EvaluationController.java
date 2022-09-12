@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,6 +35,13 @@ public class EvaluationController {
 	@PostMapping("/evaluations")
 	public Evaluation saveEvaluation(@RequestBody Evaluation evaluation) {
 		return evaluationService.save(evaluation);
+	}
+
+	@PutMapping("/evaluations/{id}")
+	public Evaluation updatEvaluation(@PathVariable("id") Long id, @RequestBody Evaluation evaluation) {
+		Evaluation currentEval = evaluationService.findOne(id);
+		currentEval.setCommentaire(evaluation.getCommentaire());
+		return evaluationService.save(currentEval);
 	}
 
 	@DeleteMapping("/evaluations/{id}")
