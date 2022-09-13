@@ -27,6 +27,14 @@ public class Evaluation implements Serializable {
 	@JsonIgnore
 	private Cours cours;
 
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "id_personne")
 	@JsonIgnore
