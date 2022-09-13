@@ -91,8 +91,8 @@ public class Personne implements Serializable {
 		this.password = password;
 	}
 
-	
-	
+
+
 	public Personne(Long id, String nom, String prenom, Date dateNaissance, String email, int numeroTel,
 			Adresse adressePersonne, byte[] image, String username, String password, Classe classe,
 			Universite universite, Compte compte, List<Examen> examens, List<Evaluation> evaluations,
@@ -266,5 +266,12 @@ public class Personne implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 	}
+
+  public Personne(String nom, String prenom, String username, String password) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.username = username;
+    this.password = password;
+  }
 }
 
