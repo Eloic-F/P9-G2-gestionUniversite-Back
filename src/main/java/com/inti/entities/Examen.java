@@ -25,18 +25,30 @@ public class Examen {
 	private Float dureeExamen;
 	private Float note;
 	private String correction;
-	
+
 	@ManyToOne
 	@JoinColumn(name="id_personne")
 	private Personne personne;
 
+  @ManyToOne
+  @JoinColumn(name="id_Cours")
+  private Cours cours;
+
 	public Examen() {
-		
+
 	}
 
-	public Examen(Long idExamen, String type, Date dateExamen, Float dureeExamen, Float note, String correction,
-			Personne personne) {
-		
+  public Cours getCours() {
+    return cours;
+  }
+
+  public void setCours(Cours cours) {
+    this.cours = cours;
+  }
+
+  public Examen(Long idExamen, String type, Date dateExamen, Float dureeExamen, Float note, String correction,
+                Personne personne) {
+
 		this.idExamen = idExamen;
 		this.type = type;
 		this.dateExamen = dateExamen;
@@ -101,5 +113,5 @@ public class Examen {
 	public void setPersonne(Personne personne) {
 		this.personne = personne;
 	}
-	
+
 }
