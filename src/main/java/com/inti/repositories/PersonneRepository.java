@@ -7,5 +7,6 @@ import com.inti.entities.Personne;
 
 @Repository
 public interface PersonneRepository extends JpaRepository<Personne, Long> {
+	Personne findByUsername(String username);
 
 }
