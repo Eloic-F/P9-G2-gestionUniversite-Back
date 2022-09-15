@@ -1,6 +1,7 @@
 package com.inti.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,12 @@ public class PersonneService implements IPersonneService {
 
 	@Override
 	public Personne findOne(Long id) {
-		return personneRepository.findById(id).get();
+		Optional<Personne> u = personneRepository.findById(id);
+		if (u.isPresent()) {
+			return u.get();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
