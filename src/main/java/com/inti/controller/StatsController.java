@@ -16,7 +16,7 @@ public class StatsController {
 
   @GetMapping("/stats/taux/{id}")
   public float tauxReussite(@PathVariable("id")Long id){return statsService.tauxdeReussite(id);}
-  @GetMapping("/stats/moyenne/{id}")
+  @PutMapping("/stats/moyenne/{id}")
   public float moyenne(@PathVariable("id")Long id, @RequestParam("idd")Long idd){return statsService.moyenne(idd,id);}
   @GetMapping("/stats/nbrEleve/{id}")
   public int nbrEleve(@PathVariable("id")Long id){return statsService.nbrEleveClasse(id);}
