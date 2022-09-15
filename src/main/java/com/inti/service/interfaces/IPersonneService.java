@@ -8,7 +8,7 @@ import com.inti.entities.Personne;
 import com.inti.entities.Question;
 
 public interface IPersonneService {
-	
+
 	List<Personne> findAll();
 
 	Personne findOne(Long id);
@@ -24,5 +24,4 @@ public interface IPersonneService {
 	List<Cours> findAllCours(Long id);
 
 	Personne findByUsername(String username);
-
 }

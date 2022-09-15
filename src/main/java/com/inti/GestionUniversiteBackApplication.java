@@ -16,5 +16,4 @@ public class GestionUniversiteBackApplication {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
 }
