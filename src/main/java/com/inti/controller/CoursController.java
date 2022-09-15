@@ -30,8 +30,9 @@ public class CoursController {
     public String saveCours(@RequestParam("libelleCours")String libelleCours, @RequestParam("dureeCours")float dureeCours, @RequestParam("dateCours")Date dateCours,
                            @RequestParam("image")MultipartFile image, @RequestParam("UE")UE ue, @RequestParam("formation")Formation formation,
                            @RequestParam("personne")Personne personne, @RequestParam("evaluations")List<Evaluation> evaluations,
-                           @RequestParam("questions")Set<Question>questions){
+                           @RequestParam("questions")Set<Question>questions,@RequestParam("idCours") Long idCours){
         try{Cours cours = new Cours();
+            cours.setIdCours(idCours);
             cours.setLibelleCours(libelleCours);
             cours.setDureeCours(dureeCours);
             cours.setDateCours(dateCours);
@@ -41,6 +42,7 @@ public class CoursController {
             cours.setEvaluations(evaluations);
             cours.setPersonne(personne);
             cours.setQuestions(questions);
+            coursService.save(cours);
             return "File upload sucess, filename = "+ image.getOriginalFilename();
         }catch (Exception ex){
             ex.printStackTrace();
@@ -53,10 +55,18 @@ public class CoursController {
         coursService.delete(id);
     }
 
-    @PutMapping("/cours/{idCours}")
+    @GetMapping("/cours/update/{idCours}")
     public Cours updateCoursWithPut(@PathVariable("idCours") Long id, @RequestBody Cours cours) {
         Cours currentCours = coursService.findOne(id);
         currentCours.setLibelleCours(cours.getLibelleCours());
+        currentCours.setDureeCours(cours.getDureeCours());
+        currentCours.setQuestions(cours.getQuestions());
+        currentCours.setPersonne(cours.getPersonne());
+        currentCours.setEvaluations(cours.getEvaluations());
+        currentCours.setFormation(cours.getFormation());
+        currentCours.setUe(cours.getUe());
+        currentCours.setDateCours(cours.getDateCours());
+        currentCours.setImage(cours.getImage());
         return coursService.save(currentCours);
     }
 }

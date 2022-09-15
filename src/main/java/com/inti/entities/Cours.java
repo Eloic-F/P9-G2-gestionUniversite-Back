@@ -38,6 +38,9 @@ public class Cours implements Serializable {
 	@OneToMany(mappedBy = "cours")
 	@JsonIgnore
 	private List<Evaluation> evaluations;
+  @OneToMany(mappedBy = "cours")
+  @JsonIgnore
+  private List<Examen> examens;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "COURS_QUESTIONS", joinColumns = @JoinColumn(name = "id_cours", referencedColumnName = "idCours"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "idQuestion"))
 	private Set<Question> questions = new HashSet<>();
@@ -46,7 +49,15 @@ public class Cours implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cours(String libelleCours, float dureeCours, byte[] image) {
+  public List<Examen> getExamens() {
+    return examens;
+  }
+
+  public void setExamens(List<Examen> examens) {
+    this.examens = examens;
+  }
+
+  public Cours(String libelleCours, float dureeCours, byte[] image) {
 		this.libelleCours = libelleCours;
 		this.dureeCours = dureeCours;
 		this.image = image;

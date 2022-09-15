@@ -27,12 +27,10 @@ public class AppUserDetailsService implements UserDetailsService {
 		Set<Role> roles = personne.getRoles();
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		for (Role role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role.getLibelleRole())); // les roles dans la variable
-																				// authorities :
-			// admin,user
+			authorities.add(new SimpleGrantedAuthority(role.getLibelleRole()));
 		}
 		PersonneDetail personneDetail = new PersonneDetail();
-		personneDetail.setPersonne(personne); // l'personne
+		personneDetail.setPersonne(personne); // l'utilisateur
 		personneDetail.setAuthorities(authorities); // les profils
 		return personneDetail;
 	}
