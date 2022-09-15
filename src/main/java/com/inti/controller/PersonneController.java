@@ -84,7 +84,7 @@ public class PersonneController {
 		return personneService.save(currentUser);
 	}
 
-	@PostMapping("/personnes/secu/{username}")
+	@GetMapping("/personnes/secu/{username}")
 	public Personne findByUsername(@PathVariable("username") String username) {
 		return personneService.findByUsername(username);
 	}
