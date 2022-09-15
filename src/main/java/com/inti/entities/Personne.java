@@ -27,7 +27,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.model.Adresse;
 
-
 @Entity
 public class Personne implements Serializable {
 	@Id
@@ -91,7 +90,18 @@ public class Personne implements Serializable {
 		this.password = password;
 	}
 
-
+	public Personne(String nom, String prenom, Date dateNaissance, String email, int numeroTel, String username,
+			String password, Compte compte, Set<Role> roles) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.email = email;
+		this.numeroTel = numeroTel;
+		this.username = username;
+		this.password = password;
+		this.compte = compte;
+		this.roles = roles;
+	}
 
 	public Personne(Long id, String nom, String prenom, Date dateNaissance, String email, int numeroTel,
 			Adresse adressePersonne, byte[] image, String username, String password, Classe classe,
@@ -267,11 +277,10 @@ public class Personne implements Serializable {
 		this.prenom = prenom;
 	}
 
-  public Personne(String nom, String prenom, String username, String password) {
-    this.nom = nom;
-    this.prenom = prenom;
-    this.username = username;
-    this.password = password;
-  }
+	public Personne(String nom, String prenom, String username, String password) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.username = username;
+		this.password = password;
+	}
 }
-

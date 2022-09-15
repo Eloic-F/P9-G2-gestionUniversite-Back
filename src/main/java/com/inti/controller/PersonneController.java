@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,9 @@ public class PersonneController {
 	@Autowired
 	IPersonneService personneService;
 
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@GetMapping("/personnes")
 	public List<Personne> findAll() {
 		return personneService.findAll();
@@ -34,9 +38,16 @@ public class PersonneController {
 		return personneService.findOne(id);
 	}
 
-	@PostMapping("/personnes")
-	public Personne savePersonne(@RequestBody Personne personne) {
-		return personneService.save(personne);
+	/*
+	 * @PostMapping("/personnes") public Personne savePersonne(@RequestBody Personne
+	 * personne) { return personneService.save(personne); }
+	 */
+	@PostMapping("personnes")
+	public Personne savePersonne(@RequestBody Personne user) {
+		Personne currentUser = new Personne(user.getNom(), user.getPrenom(), user.getDateNaissance(), user.getEmail(),
+				user.getNumeroTel(), user.getUsername(), bCryptPasswordEncoder.encode(user.getPassword()),
+				user.getCompte(), user.getRoles());
+		return personneService.save(currentUser);
 	}
 
 	@DeleteMapping("/personnes/{id}")
@@ -69,13 +80,13 @@ public class PersonneController {
 	}
 
 
-	@PutMapping("/personnes/{id}") // http://localhost:9090/utilisateurs/2
-	public Personne updateUtilisateurWithPut(@PathVariable("id") Long id /* id = 2 */, @RequestBody Personne personne) { //
+	@PutMapping("/personnes/{id}") // http://localhost:9090/personnes/2
+	public Personne updatePersonneWithPut(@PathVariable("id") Long id /* id = 2 */, @RequestBody Personne personne) { //
 		Personne currentUser = personneService.findOne(id); // nom = ayari, prenom = oussama, username=ouss, //
 															// password=ouss
 		System.out.println(currentUser.toString());
-		currentUser.setNom(personne.getNom()); // currentUser.setNomUtilisateur("Jean")
-		currentUser.setPrenom(personne.getPrenom()); // // // currentUser.setPrenomUtilisateur("Jean")
+		currentUser.setNom(personne.getNom()); // currentUser.setNomPersonne("Jean")
+		currentUser.setPrenom(personne.getPrenom()); // // // currentUser.setPrenomPersonne("Jean")
 		currentUser.setDateNaissance(personne.getDateNaissance());
 		currentUser.setEmail(personne.getEmail());
 		currentUser.setNumeroTel(personne.getNumeroTel());
