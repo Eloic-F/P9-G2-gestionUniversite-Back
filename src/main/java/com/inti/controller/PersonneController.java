@@ -79,10 +79,6 @@ public class PersonneController {
 		return personneService.findAllCours(id);
 	}
 
-	@GetMapping("/personnes/secu/{username}")
-	public Personne findByUsername(@PathVariable("username") String username) {
-		return personneService.findByUsername(username);
-	}
 
 	@PutMapping("/personnes/{id}") // http://localhost:9090/personnes/2
 	public Personne updatePersonneWithPut(@PathVariable("id") Long id /* id = 2 */, @RequestBody Personne personne) { //
@@ -98,5 +94,11 @@ public class PersonneController {
 		currentUser.setPassword(personne.getPassword());
 		return personneService.save(currentUser);
 	}
+
+	@GetMapping("/personnes/secu/{username}")
+	public Personne findByUsername(@PathVariable("username") String username) {
+		return personneService.findByUsername(username);
+	}
+
 
 }

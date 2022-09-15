@@ -19,9 +19,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idQuestion;
-	@ManyToOne(targetEntity = Question.class, fetch = FetchType.EAGER)
-	@JsonIgnore
-	private Map<String, String> question = new HashMap<>();
+  private String question;
 	private String categorie;
 	@ManyToOne
 	@JoinColumn(name = "id_Personne")
@@ -32,7 +30,7 @@ public class Question {
 
 	}
 
-	public Question(Long idQuestion, Map<String, String> question, String categorie, Personne personne,
+	public Question(Long idQuestion, String question, String categorie, Personne personne,
 			List<Cours> personnes) {
 
 		this.idQuestion = idQuestion;
@@ -49,11 +47,11 @@ public class Question {
 		this.idQuestion = idQuestion;
 	}
 
-	public Map<String, String> getQuestion() {
+	public String getQuestion() {
 		return question;
 	}
 
-	public void setQuestion(Map<String, String> question) {
+	public void setQuestion(String question) {
 		this.question = question;
 	}
 
