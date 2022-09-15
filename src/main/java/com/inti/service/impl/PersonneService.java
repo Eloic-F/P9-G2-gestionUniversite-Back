@@ -2,13 +2,13 @@ package com.inti.service.impl;
 
 import java.util.List;
 
-import com.inti.entities.Cours;
-import com.inti.entities.Examen;
-import com.inti.entities.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inti.entities.Cours;
+import com.inti.entities.Examen;
 import com.inti.entities.Personne;
+import com.inti.entities.Question;
 import com.inti.repositories.PersonneRepository;
 import com.inti.service.interfaces.IPersonneService;
 
@@ -40,22 +40,22 @@ public class PersonneService implements IPersonneService {
 
 	@Override
 	public List<Question> findAllQuestion(Long id) {
-		Personne personne=findOne(id);
-		List<Question> questions=personne.getQuestions();
+		Personne personne = findOne(id);
+		List<Question> questions = personne.getQuestions();
 		return questions;
 	}
 
 	@Override
 	public List<Cours> findAllCours(Long id) {
-		Personne personne=findOne(id);
-		List<Cours> cours=personne.getCourses();
+		Personne personne = findOne(id);
+		List<Cours> cours = personne.getCourses();
 		return cours;
 	}
 
 	@Override
 	public List<Examen> findAllExamen(Long id) {
-		Personne personne=findOne(id);
-		List<Examen> examen=personne.getExamens();
+		Personne personne = findOne(id);
+		List<Examen> examen = personne.getExamens();
 		return examen;
 	}
 
